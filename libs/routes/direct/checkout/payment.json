@@ -1,0 +1,64 @@
+{
+  "create": {
+    "method": "POST",
+    "params": {
+      "amount": {
+        "required": true,
+        "type": "string"
+      },
+      "currency": {
+        "required": true,
+        "type": "string"
+      },
+      "intent": {
+        "required": true,
+        "type": "string"
+      },
+      "merchantInvoiceNumber": {
+        "required": true,
+        "type": "string"
+      }
+    },
+    "url": "/checkout/payment/create"
+  },
+  "capture": {
+    "method": "POST",
+    "params": {
+      "paymentID": {
+        "required": true,
+        "type": "string"
+      }
+    },
+    "url": "/checkout/payment/capture/:paymentID"
+  },
+  "execute": {
+    "method": "POST",
+    "params": {
+      "paymentID": {
+        "required": true,
+        "type": "string"
+      }
+    },
+    "url": "/checkout/payment/execute/:paymentID"
+  },
+  "query": {
+    "method": "GET",
+    "params": {
+      "paymentID": {
+        "required": true,
+        "type": "string"
+      }
+    },
+    "url": "/checkout/payment/query/:paymentID"
+  },
+  "void": {
+    "method": "POST",
+    "params": {
+      "paymentID": {
+        "required": true,
+        "type": "string"
+      }
+    },
+    "url": "/checkout/payment/void/:paymentID"
+  }
+}

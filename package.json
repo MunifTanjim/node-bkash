@@ -1,0 +1,23 @@
+{
+  "name": "bkash",
+  "version": "0.1.0",
+  "description": "bKash API client for Node.js",
+  "keywords": ["bkash", "api-client"],
+  "homepage": "https://github.com/MunifTanjim/node-bkash#readme",
+  "bugs": "https://github.com/MunifTanjim/node-bkash/issues",
+  "license": "MIT",
+  "author": "MunifTanjim (https://muniftanjim.com)",
+  "files": ["index.js", "libs"],
+  "main": "index.js",
+  "repository": "github:MunifTanjim/node-bkash",
+  "scripts": {},
+  "dependencies": {
+    "before-after-hook": "^1.1.0",
+    "lodash": "^4.17.10",
+    "node-fetch": "^2.1.2",
+    "url-template": "^2.0.8"
+  },
+  "devDependencies": {
+    "debug": "^3.1.0"
+  }
+}

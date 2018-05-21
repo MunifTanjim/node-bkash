@@ -1,0 +1,82 @@
+{
+  "create": {
+    "method": "POST",
+    "params": {
+      "firstPaymentDate": {
+        "required": true,
+        "type": "string"
+      },
+      "frequency": {
+        "required": true,
+        "type": "string"
+      },
+      "payerReferenceNumber": {
+        "required": true,
+        "type": "string"
+      },
+      "requestType": {
+        "required": true,
+        "type": "string"
+      },
+      "startRangeOfDays": {
+        "required": false,
+        "type": "string"
+      },
+      "endRangeOfDays": {
+        "required": false,
+        "type": "string"
+      },
+      "expiryDate": {
+        "required": false,
+        "type": "string"
+      },
+      "amount": {
+        "required": false,
+        "type": "string"
+      },
+      "currency": {
+        "required": false,
+        "type": "string"
+      },
+      "intent": {
+        "required": false,
+        "type": "string"
+      },
+      "merchantInvoiceNumber": {
+        "required": false,
+        "type": "string"
+      }
+    },
+    "url": "/payments/mandate/create"
+  },
+  "execute": {
+    "method": "POST",
+    "params": {
+      "paymentID": {
+        "required": true,
+        "type": "string"
+      }
+    },
+    "url": "/payments/mandate/execute/:paymentID"
+  },
+  "query": {
+    "method": "GET",
+    "params": {
+      "mandateID": {
+        "required": true,
+        "type": "string"
+      }
+    },
+    "url": "payments/mandate/query/:mandateID"
+  },
+  "cancel": {
+    "method": "POST",
+    "params": {
+      "mandateID": {
+        "required": true,
+        "type": "string"
+      }
+    },
+    "url": "/payments/mandate/cancel/:mandateID"
+  }
+}
