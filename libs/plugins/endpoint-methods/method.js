@@ -1,4 +1,5 @@
-const _ = require('lodash')
+const deepmerge = require('deepmerge')
+
 const validate = require('./validate')
 
 const endpointMethod = (
@@ -8,7 +9,7 @@ const endpointMethod = (
   options,
   callback
 ) => {
-  let endpointOptions = _.defaultsDeep({}, options, endpointDefaults)
+  let endpointOptions = deepmerge(endpointDefaults, options)
 
   let promise = Promise.resolve(endpointOptions)
     .then(validate.bind(null, endpointParams))

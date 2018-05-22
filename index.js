@@ -1,5 +1,5 @@
-const _ = require('lodash')
 const Hook = require('before-after-hook')
+const deepmerge = require('deepmerge')
 
 const request = require('./libs/request')
 const clientDefaults = require('./libs/defaults').CLIENT
@@ -10,9 +10,9 @@ const Plugins = [
   require('./libs/plugins/endpoint-methods')
 ]
 
-class bKashAPI {
+class BKash {
   constructor(options = {}) {
-    let clientOptions = _.defaultsDeep(options, clientDefaults)
+    let clientOptions = deepmerge(clientDefaults, options)
     let { mode, service, version, timeout } = clientOptions
 
     this.mode = validateMode(mode)
@@ -36,8 +36,8 @@ class bKashAPI {
   }
 
   request(options) {
-    return this.hook('request', _.defaultsDeep(options, this.options), request)
+    return this.hook('request', deepmerge(this.options, options), request)
   }
 }
 
-module.exports = bKashAPI
+module.exports = BKash

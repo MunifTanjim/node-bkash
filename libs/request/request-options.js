@@ -1,12 +1,12 @@
-const _ = require('lodash')
 const urlTemplate = require('url-template')
+const deepmerge = require('deepmerge')
 
 const endpointDefaults = require('../defaults').ENDPOINT
 
 const { extractUrlVariableNames } = require('./helpers')
 
 const getRequestOptions = options => {
-  options = _.defaultsDeep({}, options, endpointDefaults)
+  options = deepmerge(endpointDefaults, options)
 
   let {
     baseUrl,
@@ -28,7 +28,9 @@ const getRequestOptions = options => {
 
   if (!/^http/.test(url)) url = `${baseUrl}${url}`
 
-  urlVariableNames.forEach(key => _.unset(remainingOptions, key))
+  urlVariableNames.forEach(key => {
+    delete remainingOptions[key]
+  })
 
   if (Object.keys(remainingOptions).length) body = remainingOptions
 
