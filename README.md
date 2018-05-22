@@ -1,6 +1,6 @@
 # node-bkash
 
-bKash API client for Node.js
+bKash API client for Browser & Node.js
 
 bKash API docs: https://developer.bka.sh/reference
 
@@ -20,12 +20,22 @@ $ yarn add bkash
 
 ## Usage
 
+### Browser
+
+
+```html
+<script src="https://unpkg.com/bkash/dist/bkash.min.js"></script>
+<script>
+  const bkash = new BKash()
+</script>
+```
+
 ### Node
 
 ```js
-const bKashAPI = require('bkash')
+const BKash = require('bkash')
 
-const bkash = new bKashAPI({
+const bkash = new BKash({
   mode: 'sandbox',
   service: 'direct',
   version: '0.40.0',
