@@ -1,6 +1,6 @@
 {
   "name": "bkash",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "bKash API client for Node.js",
   "keywords": ["bkash", "api-client"],
   "homepage": "https://github.com/MunifTanjim/node-bkash#readme",
@@ -17,7 +17,8 @@
     "build:browser:development":
       "webpack --config scripts/webpack.config.js --mode development",
     "build:browser:production":
-      "webpack --config scripts/webpack.config.js --mode production"
+      "webpack --config scripts/webpack.config.js --mode production --output-filename=bkash.min.js",
+    "publish": "npm run build && npm publish"
   },
   "dependencies": {
     "before-after-hook": "^1.1.0",
