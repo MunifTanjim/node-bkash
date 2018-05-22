@@ -1,4 +1,5 @@
 const _ = require('lodash')
+const validate = require('./validate')
 
 const endpointMethod = (
   bKash,
@@ -14,7 +15,7 @@ const endpointMethod = (
     .then(bKash.request)
 
   if (callback) {
-    promise.then(callback.bind(null, null)).catch(callback)
+    promise.then(callback.bind(null, null), callback)
     return
   }
 

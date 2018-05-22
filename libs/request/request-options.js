@@ -41,4 +41,4 @@ const getRequestOptions = options => {
   }
 }
 
-module.exports.getRequestOptions = getRequestOptions
+module.exports = getRequestOptions

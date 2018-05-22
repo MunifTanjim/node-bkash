@@ -27,6 +27,8 @@ class bKashAPI {
     this.hook = new Hook()
 
     Plugins.forEach(Plugin => this.addPlugin(Plugin))
+
+    this.request = this.request.bind(this)
   }
 
   addPlugin(Plugin) {
@@ -34,7 +36,7 @@ class bKashAPI {
   }
 
   request(options) {
-    this.hook('request', _.defaultsDeep(options, this.options), request)
+    return this.hook('request', _.defaultsDeep(options, this.options), request)
   }
 }
 

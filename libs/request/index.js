@@ -1,4 +1,4 @@
-const getRequestOptions = require('./helpers')
+const getRequestOptions = require('./request-options')
 const request = require('./request')
 
 const restRequest = endpointOptions => {

@@ -1,6 +1,8 @@
 const authBeforeRequest = (state, options) => {
   if (!state.auth.type) return
 
+  options.headers = options.headers || {}
+
   switch (state.auth.type) {
     case 'simple':
       options.headers['username'] = state.auth.username
