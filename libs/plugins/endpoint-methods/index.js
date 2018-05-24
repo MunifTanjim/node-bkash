@@ -19,12 +19,12 @@ class EndpointMethodsPlugin {
         Object.keys(service[namespace][section]).forEach(api => {
           let apiOptions = service[namespace][section][api]
 
-          let { method, url, headers, request, params } = apiOptions
+          let { method, params, url, ...rest } = apiOptions
 
           this.core[namespace][section][api] = endpointMethod.bind(
             null,
             this.core,
-            { method, url, headers, request },
+            { method, url, ...rest },
             params
           )
         })

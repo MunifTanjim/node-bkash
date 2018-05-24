@@ -13,7 +13,7 @@ const Plugins = [
 class BKash {
   constructor(options = {}) {
     let clientOptions = deepmerge(clientDefaults, options)
-    let { mode, service, version, timeout } = clientOptions
+    let { mode, service, version, headers, timeout } = clientOptions
 
     this.mode = validateMode(mode)
     this.service = validateService(service)
@@ -21,6 +21,7 @@ class BKash {
 
     this.options = {
       baseUrl: `https://${this.service}.${this.mode}.bka.sh/v${this.version}`,
+      headers,
       request: { timeout }
     }
 

@@ -1,7 +1,7 @@
 {
   "name": "bkash",
-  "version": "0.2.1",
-  "description": "bKash API client for Node.js",
+  "version": "0.2.2",
+  "description": "bKash API client for Browser & Node.js",
   "keywords": ["bkash", "api-client"],
   "homepage": "https://github.com/MunifTanjim/node-bkash#readme",
   "bugs": "https://github.com/MunifTanjim/node-bkash/issues",

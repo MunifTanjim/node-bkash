@@ -6,7 +6,7 @@ const endpointMethod = (
   bKash,
   endpointDefaults,
   endpointParams,
-  options,
+  options = {},
   callback
 ) => {
   let endpointOptions = deepmerge(endpointDefaults, options)
