@@ -2,7 +2,7 @@
 
 bKash API client for Browser & Node.js
 
-bKash API docs: https://developer.bka.sh/reference
+bKash API docs: https://developer.bka.sh/v1.0.0-beta/reference
 
 ## Installation
 
@@ -22,11 +22,10 @@ $ yarn add bkash
 
 ### Browser
 
-
 ```html
 <script src="https://unpkg.com/bkash/dist/bkash.min.js"></script>
 <script>
-  const bkash = new BKash()
+  const bkash = new BKash(clientOptions)
 </script>
 ```
 
@@ -35,18 +34,21 @@ $ yarn add bkash
 ```js
 const BKash = require('bkash')
 
-const bkash = new BKash({
-  mode: 'sandbox',
-  service: 'direct',
-  version: '0.40.0',
-  timeout: 0, // req/res timeout in ms, 0 means disabled
-})
+const clientOptions = {
+  mode: 'sandbox', // sandbox/pay
+  type: 'checkout' // checkout/payments
+}
 
-// https://developer.bka.sh/v0.40.0/reference#querypaymentusingget
-bkash.checkout.payment.query({
+const bkash = new BKash(clientOptions)
+
+// https://developer.bka.sh/v1.0.0-beta/reference#querypaymentusingget
+bkash.queryPayment({
   paymentID: '42'
-}).then(({ data, meta }) => {
-  // handle data
+}).then(({ data, error, headers, meta }) => {
+  // data  -> HTTP Status Code < 400
+  // error -> HTTP Status Code >= 400
+}).catch(err => {
+  // HTTP Status Code >= 500
 })
 ```
 
@@ -56,15 +58,15 @@ bkash.checkout.payment.query({
 // required for token.grant and token.refresh methods
 bkash.authenticate({
   type: 'simple',
-  username: 'username',
-  password: 'password'
+  username: '...', // headers[`username`]
+  password: '...'  // headers[`password`]
 })
 
 // required for all other methods
 bkash.authenticate({
   type: 'token',
-  token: 'token',
-  appkey: 'appkey'
+  token: '...',      // headers[`authorization`]
+  appkey: '...'     // headers[`x-app-key`]
 })
 ```
 

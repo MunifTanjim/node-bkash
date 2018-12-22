@@ -1,0 +1,321 @@
+[
+  {
+    "method": "POST",
+    "name": "createMandate",
+    "params": {
+      "amount": {
+        "type": "string"
+      },
+      "currency": {
+        "type": "string"
+      },
+      "endRangeOfDays": {
+        "type": "string"
+      },
+      "expiryDate": {
+        "type": "string"
+      },
+      "firstPaymentDate": {
+        "required": true,
+        "type": "string"
+      },
+      "frequency": {
+        "required": true,
+        "type": "string"
+      },
+      "intent": {
+        "type": "string"
+      },
+      "merchantInvoiceNumber": {
+        "type": "string"
+      },
+      "payerReferenceNumber": {
+        "required": true,
+        "type": "string"
+      },
+      "requestType": {
+        "required": true,
+        "type": "string"
+      },
+      "startRangeOfDays": {
+        "type": "string"
+      }
+    },
+    "url": "/payments/mandate/create"
+  },
+  {
+    "method": "POST",
+    "name": "executeMandate",
+    "params": {
+      "paymentID": {
+        "required": true,
+        "type": "string"
+      }
+    },
+    "url": "/payments/mandate/execute/{paymentID}"
+  },
+  {
+    "method": "GET",
+    "name": "queryMandate",
+    "params": {
+      "mandateID": {
+        "required": true,
+        "type": "string"
+      }
+    },
+    "url": "/payments/mandate/query/{mandateID}"
+  },
+  {
+    "method": "POST",
+    "name": "cancelMandate",
+    "params": {
+      "mandateID": {
+        "required": true,
+        "type": "string"
+      }
+    },
+    "url": "/payments/mandate/cancel/{mandateID}"
+  },
+  {
+    "method": "POST",
+    "name": "createPayment",
+    "params": {
+      "amount": {
+        "required": true,
+        "type": "string"
+      },
+      "currency": {
+        "required": true,
+        "type": "string"
+      },
+      "intent": {
+        "required": true,
+        "type": "string"
+      },
+      "merchantInvoiceNumber": {
+        "required": true,
+        "type": "string"
+      }
+    },
+    "url": "/checkout/payment/create"
+  },
+  {
+    "method": "POST",
+    "name": "capturePayment",
+    "params": {
+      "paymentID": {
+        "required": true,
+        "type": "string"
+      }
+    },
+    "url": "/checkout/payment/capture/{paymentID}"
+  },
+  {
+    "method": "POST",
+    "name": "executePayment",
+    "params": {
+      "paymentID": {
+        "required": true,
+        "type": "string"
+      }
+    },
+    "url": "/checkout/payment/execute/{paymentID}"
+  },
+  {
+    "method": "GET",
+    "name": "queryPayment",
+    "params": {
+      "paymentID": {
+        "required": true,
+        "type": "string"
+      }
+    },
+    "url": "/checkout/payment/query/{paymentID}"
+  },
+  {
+    "method": "POST",
+    "name": "voidPayment",
+    "params": {
+      "paymentID": {
+        "required": true,
+        "type": "string"
+      }
+    },
+    "url": "/checkout/payment/void/{paymentID}"
+  },
+  {
+    "method": "POST",
+    "name": "directDebit",
+    "params": {
+      "amount": {
+        "required": true,
+        "type": "string"
+      },
+      "currency": {
+        "required": true,
+        "type": "string"
+      },
+      "intent": {
+        "required": true,
+        "type": "string"
+      },
+      "mandateID": {
+        "required": true,
+        "type": "string"
+      },
+      "merchantInvoiceNumber": {
+        "required": true,
+        "type": "string"
+      },
+      "payerReferenceNumber": {
+        "required": true,
+        "type": "string"
+      }
+    },
+    "url": "/payments/payment/mandate/{mandateID}"
+  },
+  {
+    "method": "POST",
+    "name": "directDebitCapture",
+    "params": {
+      "paymentID": {
+        "required": true,
+        "type": "string"
+      }
+    },
+    "url": "/payments/payment/capture/{paymentID}"
+  },
+  {
+    "method": "GET",
+    "name": "queryAuthorizationPayment",
+    "params": {
+      "paymentID": {
+        "required": true,
+        "type": "string"
+      }
+    },
+    "url": "/payments/payment/query/{paymentID}"
+  },
+  {
+    "method": "POST",
+    "name": "cancelPayment",
+    "params": {
+      "paymentID": {
+        "required": true,
+        "type": "string"
+      }
+    },
+    "url": "/payments/payment/void/{paymentID}"
+  },
+  {
+    "method": "POST",
+    "name": "b2cPayment",
+    "params": {
+      "amount": {
+        "required": true,
+        "type": "string"
+      },
+      "currency": {
+        "required": true,
+        "type": "string"
+      },
+      "merchantInvoiceNumber": {
+        "required": true,
+        "type": "string"
+      },
+      "receiverMSISDN": {
+        "required": true,
+        "type": "string"
+      }
+    },
+    "url": "/payments/payment/b2cPayment"
+  },
+  {
+    "method": "GET",
+    "name": "queryOrganizationBalance",
+    "url": "/payments/payment/organizationBalance"
+  },
+  {
+    "method": "POST",
+    "name": "intraAccountTransfer",
+    "params": {
+      "amount": {
+        "required": true,
+        "type": "string"
+      },
+      "currency": {
+        "required": true,
+        "type": "string"
+      },
+      "transferType": {
+        "required": true,
+        "type": "string"
+      }
+    },
+    "url": "/payments/payment/intraAccountTransfer"
+  },
+  {
+    "method": "GET",
+    "name": "searchTransaction",
+    "params": {
+      "trxID": {
+        "required": true,
+        "type": "string"
+      }
+    },
+    "url": "/payments/payment/search/{trxID}"
+  },
+  {
+    "method": "POST",
+    "name": "refundTransaction",
+    "params": {
+      "amount": {
+        "required": true,
+        "type": "string"
+      },
+      "currency": {
+        "required": true,
+        "type": "string"
+      },
+      "trxID": {
+        "required": true,
+        "type": "string"
+      }
+    },
+    "url": "/payments/payment/refund/{trxID}"
+  },
+  {
+    "method": "POST",
+    "name": "getToken",
+    "params": {
+      "app_key": {
+        "required": true,
+        "type": "string"
+      },
+      "app_secret": {
+        "required": true,
+        "type": "string"
+      }
+    },
+    "url": "/payments/token/grant"
+  },
+  {
+    "method": "POST",
+    "name": "refreshToken",
+    "params": {
+      "app_key": {
+        "required": true,
+        "type": "string"
+      },
+      "app_secret": {
+        "required": true,
+        "type": "string"
+      },
+      "refresh_token": {
+        "required": true,
+        "type": "string"
+      }
+    },
+    "url": "/payments/token/refresh"
+  }
+]

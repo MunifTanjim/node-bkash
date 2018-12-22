@@ -1,35 +1,54 @@
 {
   "name": "bkash",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "description": "bKash API client for Browser & Node.js",
-  "keywords": ["bkash", "api-client"],
+  "keywords": [
+    "bkash",
+    "bkash-api",
+    "api-client",
+    "api",
+    "rest"
+  ],
   "homepage": "https://github.com/MunifTanjim/node-bkash#readme",
   "bugs": "https://github.com/MunifTanjim/node-bkash/issues",
   "license": "MIT",
   "author": "MunifTanjim (https://muniftanjim.com)",
-  "files": ["index.js", "libs", "dist/*.js"],
-  "main": "index.js",
+  "files": [
+    "src",
+    "dist/*.js"
+  ],
+  "main": "src/index.js",
   "repository": "github:MunifTanjim/node-bkash",
   "scripts": {
     "build": "npm-run-all build:*",
     "prebuild:browser": "mkdirp dist/",
     "build:browser": "npm-run-all build:browser:*",
-    "build:browser:development":
-      "webpack --config scripts/webpack.config.js --mode development",
-    "build:browser:production":
-      "webpack --config scripts/webpack.config.js --mode production --output-filename=bkash.min.js",
+    "build:browser:development": "webpack --mode development",
+    "build:browser:production": "webpack --mode production --output-filename=bkash.min.js",
+    "generate:routes": "node scripts/generate-routes.js",
     "publish": "npm run build && npm publish"
   },
   "dependencies": {
     "before-after-hook": "^1.1.0",
-    "deepmerge": "^2.1.0",
+    "debug": "^3.1.0",
+    "is-plain-object": "^2.0.4",
     "node-fetch": "^2.1.2",
     "url-template": "^2.0.8"
   },
   "devDependencies": {
-    "debug": "^3.1.0",
+    "clean-deep": "^3.0.2",
+    "deep-sort-object": "^1.0.2",
+    "eslint": "^4.19.1",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-import": "^2.12.0",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-prettier": "^2.6.0",
+    "eslint-plugin-promise": "^3.8.0",
+    "eslint-plugin-standard": "^3.1.0",
     "mkdirp": "^0.5.1",
     "npm-run-all": "^4.1.3",
+    "prettier": "^1.12.1",
     "webpack": "^4.8.3",
     "webpack-cli": "^2.1.3"
   }

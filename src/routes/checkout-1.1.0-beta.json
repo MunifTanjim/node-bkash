@@ -1,0 +1,183 @@
+[
+  {
+    "method": "POST",
+    "name": "createPayment",
+    "params": {
+      "amount": {
+        "required": true,
+        "type": "string"
+      },
+      "currency": {
+        "required": true,
+        "type": "string"
+      },
+      "intent": {
+        "required": true,
+        "type": "string"
+      },
+      "merchantAssociationInfo": {
+        "type": "string"
+      },
+      "merchantInvoiceNumber": {
+        "required": true,
+        "type": "string"
+      }
+    },
+    "url": "/checkout/payment/create"
+  },
+  {
+    "method": "POST",
+    "name": "executePayment",
+    "params": {
+      "paymentID": {
+        "required": true,
+        "type": "string"
+      }
+    },
+    "url": "/checkout/payment/execute/{paymentID}"
+  },
+  {
+    "method": "POST",
+    "name": "capturePayment",
+    "params": {
+      "paymentID": {
+        "required": true,
+        "type": "string"
+      }
+    },
+    "url": "/checkout/payment/capture/{paymentID}"
+  },
+  {
+    "method": "GET",
+    "name": "queryPayment",
+    "params": {
+      "paymentID": {
+        "required": true,
+        "type": "string"
+      }
+    },
+    "url": "/checkout/payment/query/{paymentID}"
+  },
+  {
+    "method": "POST",
+    "name": "voidPayment",
+    "params": {
+      "paymentID": {
+        "required": true,
+        "type": "string"
+      }
+    },
+    "url": "/checkout/payment/void/{paymentID}"
+  },
+  {
+    "method": "POST",
+    "name": "b2cPayment",
+    "params": {
+      "amount": {
+        "required": true,
+        "type": "string"
+      },
+      "currency": {
+        "required": true,
+        "type": "string"
+      },
+      "merchantInvoiceNumber": {
+        "required": true,
+        "type": "string"
+      },
+      "receiverMSISDN": {
+        "required": true,
+        "type": "string"
+      }
+    },
+    "url": "/checkout/payment/b2cPayment"
+  },
+  {
+    "method": "GET",
+    "name": "queryOrganizationBalance",
+    "url": "/checkout/payment/organizationBalance"
+  },
+  {
+    "method": "POST",
+    "name": "intraAccountTransfer",
+    "params": {
+      "amount": {
+        "required": true,
+        "type": "string"
+      },
+      "currency": {
+        "required": true,
+        "type": "string"
+      },
+      "transferType": {
+        "required": true,
+        "type": "string"
+      }
+    },
+    "url": "/checkout/payment/intraAccountTransfer"
+  },
+  {
+    "method": "GET",
+    "name": "searchTransaction",
+    "params": {
+      "trxID": {
+        "required": true,
+        "type": "string"
+      }
+    },
+    "url": "/checkout/payment/search/{trxID}"
+  },
+  {
+    "method": "POST",
+    "name": "refundTransaction",
+    "params": {
+      "amount": {
+        "required": true,
+        "type": "string"
+      },
+      "currency": {
+        "required": true,
+        "type": "string"
+      },
+      "trxID": {
+        "required": true,
+        "type": "string"
+      }
+    },
+    "url": "/checkout/payment/refund/{trxID}"
+  },
+  {
+    "method": "POST",
+    "name": "getToken",
+    "params": {
+      "app_key": {
+        "required": true,
+        "type": "string"
+      },
+      "app_secret": {
+        "required": true,
+        "type": "string"
+      }
+    },
+    "url": "/checkout/token/grant"
+  },
+  {
+    "method": "POST",
+    "name": "refreshToken",
+    "params": {
+      "app_key": {
+        "required": true,
+        "type": "string"
+      },
+      "app_secret": {
+        "required": true,
+        "type": "string"
+      },
+      "refresh_token": {
+        "required": true,
+        "type": "string"
+      }
+    },
+    "url": "/checkout/token/refresh"
+  }
+]
